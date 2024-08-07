@@ -4,13 +4,13 @@ import axios from "axios";
 function App() {
   const [name, setName] = useState("");
   // const getname = async () => {
-  //   let response = await axios.get("http://localhost:8080/api/getname");
+  //   let response = await axios.get("http://178.128.84.238:8080/api/getname");
   //   console.log(response);
   // };
   useEffect(() => {
     // getname();
     axios
-      .get("http://localhost:8080/api/getname")
+      .get("http://178.128.84.238/api/getname")
       .then((response) => setName(response.data.name))
       .catch((err) => console.log(err));
   }, []);
