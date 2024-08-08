@@ -27,7 +27,7 @@ jobs:
         uses: SpicyPizza/create-envfile@v2.0
         with:
           envkey_NAME: "KALLOL-KAHTUA-ENV-CONFIG"
-          directory: var/www/myWebsite/_work/Digital-Ocean-Express-deploy/Digital-Ocean-Express-deploy
+          # directory: var/www/myWebsite/_work/Digital-Ocean-Express-deploy/Digital-Ocean-Express-deploy
           file_name: .env
           fail_on_empty: false
           sort_keys: false
