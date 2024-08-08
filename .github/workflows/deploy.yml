@@ -7,8 +7,21 @@ on:
     branches: [main]
 
 jobs:
-  create-envfile:
+  # create-envfile:
+  #   runs-on: self-hosted
+  #   steps:
+  #     - name: Make envfile
+  #       uses: SpicyPizza/create-envfile@v2.0
+  #       with:
+  #         envkey_NAME: "KALLOL-KAHTUA-ENV-CONFIG"
+  #         # directory: <directory_name>
+  #         file_name: .env
+  #         fail_on_empty: false
+  #         sort_keys: false
+
+  build:
     runs-on: self-hosted
+
     steps:
       - name: Make envfile
         uses: SpicyPizza/create-envfile@v2.0
@@ -18,11 +31,6 @@ jobs:
           file_name: .env
           fail_on_empty: false
           sort_keys: false
-
-  build:
-    runs-on: self-hosted
-
-    steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version}}
         uses: actions/setup-node@v1
