@@ -18,7 +18,7 @@ jobs:
           node-version: ${{matrix.node-version}}
       - run: |
           npm i
-          export NAME=kallol
+          # export NAME=kallol
           pm2 stop 0
           cd frontend
           npm i
