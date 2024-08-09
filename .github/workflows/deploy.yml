@@ -1,4 +1,4 @@
-name: Express deploy digital ocean
+name: Express deploy digital ocean ci
 
 on:
   push:
@@ -7,44 +7,16 @@ on:
     branches: [main]
 
 jobs:
-  # create-envfile:
-  #   runs-on: self-hosted
-  #   steps:
-  #     - name: Make envfile
-  #       uses: SpicyPizza/create-envfile@v2.0
-  #       with:
-  #         envkey_NAME: "KALLOL-KAHTUA-ENV-CONFIG"
-  #         # directory: <directory_name>
-  #         file_name: .env
-  #         fail_on_empty: false
-  #         sort_keys: false
-
   build:
     runs-on: self-hosted
-
     steps:
-      # - name: Make envfile
-      #   uses: SpicyPizza/create-envfile@v2.0
-      #   with:
-      #     envkey_NAME: "KALLOL-KAHTUA Hi"
-      #     # directory: var/www/myWebsite/_work/Digital-Ocean-Express-deploy/Digital-Ocean-Express-deploy
-      #     file_name: .env
-      #     fail_on_empty: false
-      #     sort_keys: false
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version}}
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
         with:
           node-version: ${{matrix.node-version}}
       - run: |
-          npm i
-          # export NAME=kallol
-          # pm2 stop 0
-          # cd frontend
-          # npm i
-          # npm run build
-          # cd ..
-          # pm2 start 0
+          npm install
           pm2 delete 0
           pm2 start npm --name "myWebsite" -- run start
           pm2 save
