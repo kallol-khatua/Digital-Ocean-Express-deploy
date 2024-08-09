@@ -7,7 +7,7 @@ const path = require('path');
 
 app.use(cors());
 
-app.get("/api/", (req, res) => {
+app.get("/api", (req, res) => {
     res.status(200).send({ success: true, message: "Working fine" });
 })
 
@@ -16,7 +16,7 @@ app.get("/api/hello", (req, res) => {
 })
 
 app.get("/api/getname", async (req, res) => {
-    res.status(200).send({ success: true, message: "Get name", name: process.env.NAME || "Kallol Khatua" });
+    res.status(200).send({ success: true, message: "Get name", name: process.env.NAME || "Name not from env" });
 })
 
 app.use(express.static(path.join(__dirname, "/frontend/dist")))
